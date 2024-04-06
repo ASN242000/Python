@@ -2,7 +2,7 @@
 """
 Created on Tue Apr  2 11:19:18 2024
 
-@author: anush
+@author: anusha
 """
 # -*- coding: utf-8 -*-
 """
@@ -106,6 +106,157 @@ print(ord('\n'))""" \n is a byte with the binary value 10 in ASCII """
 import re
 match = re.match('Hello[ \t]*(.*)world', 'Hello         Python world')
 print(match.group(1))
+
+#%%
+"""Lists - are mutable"""
+l = [123, 'spam', 1.23]
+len(l)
+print(l*2)
+l.append('NI')
+print(l)
+l.pop(0)
+print(l)
+#%%
+m=['bb','aa','cc']
+m.sort()
+print(m)
+m.reverse()
+print(m)
+#%%
+ M = [[1, 2, 3],               
+[4, 5, 6],               
+[7, 8, 9]]
+ print(M[1])
+ 
+#List Comprehensions
+# Collect the items in column 2
+col2 = [row[1] for row in M]  
+print(col2)
+
+#Add 1 to each item in column 2
+print( [row[1] + 1 for row in M] )
+
+#Collect a diagonal from matrix
+print( [M[i][i] for i in [0, 1, 2]] )
+
+#Repeat characters in a string
+print([c * 2 for c in 'spam'])
+#%%
+list(range(4))
+list(range(-6,7,2))
+
+[[x ** 2, x ** 3] for x in range(4)]  
+[[x, x / 2, x * 2] for x in range(-6, 7, 2) if x > 0]
+#%%
+#Generators
+M = [[1, 2, 3],               
+[4, 5, 6],               
+[7, 8, 9]]
+
+G= (sum(row) for row in M)
+print(next(G))
+print(next(G))
+print(next(G))
+
+#%%
+#Maps doing same as above
+M = [[1, 2, 3],               
+[4, 5, 6],               
+[7, 8, 9]]
+list(map(sum,M))
+
+#%% 
+#Create a set of row sums
+M = [[1, 2, 3],               
+[4, 5, 6],               
+[7, 8, 9]]
+{sum(row) for row in M}
+
+#Create key value table of row sums
+{i : sum(M[i]) for i in range(3)} 
+
+# List of character ordinals
+[ord(x) for x in 'spaam']    
+
+#Sets remove duplicates
+{ord(x) for x in 'spaam'} 
+
+# Dictionary keys are unique
+{x: ord(x) for x in 'spaam'} 
+
+# Generator of values
+(ord(x) for x in 'spaam')  
+
+#%%
+#Arbitary Nesting
+s=[[1,2,3],
+   [4,5,6],
+   [7,8,9]]
+print(s)
+#%%
+#Dictionaries
+
+d= {'food': 'Spam', 'quantity': 4, 'color': 'pink'}
+print(d['food'])
+print(d['quantity']+1)
+
+#Create keys by assignment
+D={}
+D['name']='Bob'
+print(D)
+
+#%%
+""" As we’ll learn later, we can also make dictionaries by passing to the dict type name 
+either keyword arguments (a special name=value syntax in function calls), or the result
+ of zipping together sequences of keys and values obtained at runtime (e.g., from files).
+ """
+bob1= dict(name='Bob', job='dev', age=40)
+print(bob1)
+
+bob2 = dict(zip(['name','job','age'], ['Bob','dev',40]))
+print(bob2)
+
+#%%
+
+#Nested
+rec = {'name': {'first': 'Bob', 'last': 'Smith'},
+ 'jobs': ['dev', 'mgr'],
+ 'age':  40.5}
+
+print(rec['name'])
+print(rec['name']['last'])
+
+print(rec['jobs'])
+rec['jobs'].append('janitor')
+print(rec['jobs'])
+print(rec['jobs'][-1])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
